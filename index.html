@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Galeria de imagenes</title>
+  <link rel="icon" href="img/icon.jpg" type="image/x-icon" />
+
+  <!-- Fonts and Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-6yQm0xEAEvFVAmcv8HPYZYAYBoMJW6rPQOmSKJkeCgRAYGkzOl3CtC7+Crldm7zmXKkOLN3BjeN/7bUOE+n4Zg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+  <link rel="stylesheet" href="style/normalize.css" />
+  <link rel="stylesheet" href="style/style.css" />
+</head>
+
+<body>
+  <div class="wrapp">
+    <h1 class="title">Explora Nuestra Galería</h1>
+ 
+    <ul class="gallery">
+      <li class="gallery__item" data-fancybox="gallery" data-src="img/1.png">
+        <img src="img/1.png" alt="1" class="gallery__img" />
+        <span class="zoom">zoom</span>
+      </li>
+      <li class="gallery__item" data-fancybox="gallery" data-src="img/2.jpeg">
+        <img src="img/2.jpeg" alt="2" class="gallery__img" />
+        <span class="zoom">zoom</span>
+      </li>
+      <li class="gallery__item" data-fancybox="gallery" data-src="img/tinto.jpeg">
+        <img src="img/tinto.jpeg" alt="3" class="gallery__img" />
+        <span class="zoom">zoom</span>
+      </li>
+      <li class="gallery__item" data-fancybox="gallery" data-src="img/7.jpeg">
+        <img src="img/7.jpeg" alt="4" class="gallery__img" />
+        <span class="zoom">zoom</span>
+      </li>
+      <li class="gallery__item" data-fancybox="gallery" data-src="img/infoprodu.jpg">
+        <img src="img/infoprodu.jpg" alt="5" class="gallery__img" />
+        <span class="zoom">zoom</span>
+      </li>
+      <li class="gallery__item" data-fancybox="gallery" data-src="img/99.jpeg">
+        <img src="img/99.jpeg" alt="6" class="gallery__img" />
+        <span class="zoom">zoom</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Scripts -->
+ 
+  <script>
+    Fancybox.bind('[data-fancybox="gallery"]', {
+      dragToClose: false,
+      closeButton: "top",
+      Image: {
+        zoom: false,
+      },
+      on: {
+        initCarousel: (fancybox) => {
+          const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+          fancybox.$container.style.setProperty(
+            "--bg-image",
+            `url("${slide.$thumb.src}")`
+          );
+        },
+        "Carousel.change": (fancybox, carousel, to) => {
+          const slide = carousel.slides[to];
+          fancybox.$container.style.setProperty(
+            "--bg-image",
+            `url("${slide.$thumb.src}")`
+          );
+        },
+      },
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+</body>
+
+</html>
