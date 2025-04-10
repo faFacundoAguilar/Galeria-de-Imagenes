@@ -14,4 +14,4 @@
 - Galería con efecto *zoom* al pasar el mouse
 - Imágenes ampliables en una vista envolvente moderna
 - Diseño adaptable para dispositivos móviles
-- Ícono animado debajo del título para una experiencia más dinámica.
+
